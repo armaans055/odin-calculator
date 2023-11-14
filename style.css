@@ -35,8 +35,9 @@ body{
 
 .computed-total{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     font-size: 4em;
+    padding-right: 30px;
 
 }
 
@@ -78,15 +79,15 @@ body{
 .nine,
 .eight,
 .seven,
-.divide,
+.divi,
 .six,
 .five,
 .four,
-.multiply,
+.mul,
 .three,
 .two,
 .one,
-.subtract,
+.sub,
 .decimal,
 .zero,
 .equals,
