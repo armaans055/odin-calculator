@@ -5,16 +5,20 @@ html, body {
     margin: 0;
     height: 100%;
 }
-
+h1{
+    font-size: 50px;
+}
 body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .container{
-    border: 5px solid black;
-    height: 500px;
+    border-radius: 10px;
+    border: 10px solid black;
+    height: 540px;
     width: 400px;
     display: flex;
     flex-direction:column;
@@ -52,17 +56,18 @@ body{
     display: flex;
     align-items: center;
     height: 1.5em;
-    width: 5em;
+    width: 5.5em;
     font-size: 2em;
 }
 
-.number-ops{
-    height: 100%;
-    width: 100%;
+.numbers-ops{
     display:flex;
     flex-wrap: wrap;
-    padding-left: 2px;
-    padding-right: 2px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
 }
 .nine,
 .eight,
@@ -80,7 +85,9 @@ body{
 .zero,
 .equals,
 .add{
-    height: 5.5em;
-    width: 5.5em;
+    font-size: 2.5em;
+    height: 2em;
+    width: 2em;
+    margin: 2px;
 }
 
