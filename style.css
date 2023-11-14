@@ -1,0 +1,86 @@
+*{
+    font-family: 'VT323', sans-serif;
+}
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    border: 5px solid black;
+    height: 500px;
+    width: 400px;
+    display: flex;
+    flex-direction:column;
+}
+.container-top{
+    padding-bottom: 30px;
+    padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.computed-total{
+    display: flex;
+    justify-content: center;
+    font-size: 4em;
+}
+
+.container-bottom{
+    height: 100%;
+    width: 100%;
+}
+
+.big-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    gap: 9px;
+}
+
+
+.clear,
+.delete{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 1.5em;
+    width: 5em;
+    font-size: 2em;
+}
+
+.number-ops{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.nine,
+.eight,
+.seven,
+.divide,
+.six,
+.five,
+.four,
+.multiply,
+.three,
+.two,
+.one,
+.subtract,
+.decimal,
+.zero,
+.equals,
+.add{
+    height: 5.5em;
+    width: 5.5em;
+}
+
