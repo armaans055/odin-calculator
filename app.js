@@ -24,13 +24,30 @@ let divButton = document.querySelector('.divi')
 let mulButton = document.querySelector('.mul')
 let clear = document.querySelector('.clear')
 let equals = document.querySelector('.equals')
+let deleter = document.querySelector('.delete')
+let decimal = document.querySelector('.decimal')
 clear.addEventListener('click',()=>{
     operand1 = ''
     operand2 = ''
     displayTotal.textContent = oldTotal
     operatorClicked = false;
     equalsClicked = false;
+    minusClicked = false;
+    multiClicked = false;
+    divClicked = false;
 })
+deleter.addEventListener('click', ()=>{
+    if(operand1.length <= 1){
+        displayTotal.textContent = oldTotal
+        operand1 = ''
+        return
+    }else{
+    operand1 = operand1[operand1.length-1]
+    displayTotal.textContent = operand1
+    }
+})
+decimal.addEventListener('click', buttonDecimalPressed)
+
 equals.addEventListener('click', ()=>{
     equalsClicked = true;
 })
@@ -52,20 +69,21 @@ subButton.addEventListener('click', ()=> {operatorClicked = true})
 addButton.addEventListener('click' , buttonAddPressed)
 subButton.addEventListener('click', buttonMinusPressed)
 mulButton.addEventListener('click', buttonMultiPressed)
-function operate(a,b,operand){
-    a = parseInt(a)
-    b = parseInt(b)
-    switch(operand){
-        case '+':
-            return addition(a,b)
-        case '-':
-            return subtract(a,b)
-        case '/':
-            return divide(a,b)
-        case '*':
-            return multiply(a,b)
-    }
-}
+divButton.addEventListener('click', buttonDivPressed)
+// function operate(a,b,operand){
+//     a = parseInt(a)
+//     b = parseInt(b)
+//     switch(operand){
+//         case '+':
+//             return addition(a,b)
+//         case '-':
+//             return subtract(a,b)
+//         case '/':
+//             return divide(a,b)
+//         case '*':
+//             return multiply(a,b)
+//     }
+// }
 
 function buttonOnePressed(){
     if(operatorClicked === false){
@@ -157,6 +175,15 @@ function buttonZeroPressed(){
         displayTotal.textContent = operand2
     }
 }
+function buttonDecimalPressed(){
+    if(operatorClicked === false){
+        operand1 += '.'
+        displayTotal.textContent = operand1
+    }else{
+        operand2 += '.'
+        displayTotal.textContent = operand2
+    }
+}
 // function buttonAddPressed(){
 //         let tempVal1 = +operand1
 //     let tempVal2 = +operand2
@@ -177,7 +204,7 @@ function buttonAddPressed(){
 }
 
 function buttonMinusPressed(){
-    minusClickedClicked = true;
+    minusClicked = true;
     let tempVal1 = +operand1
     let tempVal2 = +operand2
     operand1 = tempVal1 - tempVal2
@@ -188,45 +215,60 @@ function buttonMinusPressed(){
 
 function buttonMultiPressed(){
     multiClicked = true;
-    let tempVal1 = +operand1
-    let tempVal2 = +operand2
-    operand1 = tempVal1 * tempVal2
-    operand1 = operand1.toString()
-    operand2 = ''
-    displayTotal.textContent = operand1
+    // let tempVal1 = +operand1
+    // let tempVal2 = +operand2
+    // operand1 = tempVal1 * tempVal2
+    // operand1 = operand1.toString()
+    // operand2 = ''
+    // displayTotal.textContent = operand1
 }
 function buttonDivPressed(){
-    plusClicked = true;
-    let tempVal1 = +operand1
-    let tempVal2 = +operand2
-    operand1 = tempVal1 + tempVal2
-    operand1 = operand1.toString()
-    operand2 = ''
-    displayTotal.textContent = operand1
+    divClicked = true;
+    // let tempVal1 = +operand1
+    // let tempVal2 = +operand2
+    // operand1 = tempVal1 + tempVal2
+    // operand1 = operand1.toString()
+    // operand2 = ''
+    // displayTotal.textContent = operand1
 }
 function equalsButtonPressed(){
     if (plusClicked === true){
         operand1 = +operand1 + +operand2
         operand1 = operand1.toString()
+        operand2 = ''
         displayTotal.textContent = operand1
         plusClicked = false;
     }else if(minusClicked === true){
         operand1 = +operand1 - +operand2
         operand1 = operand1.toString()
+        operand2 = ''
         displayTotal.textContent = operand1
-        plusClicked = false;
-    }else if(divClicked === true){
-        operand1 = +operand1 / +operand2
-        operand1 = operand1.toString()
-        displayTotal.textContent = operand1
-        plusClicked = false;
+        minusClicked = false;
     }else if(multiClicked === true){
         operand1 = +operand1 * +operand2
         operand1 = operand1.toString()
+        operand2 = ''
         displayTotal.textContent = operand1
-        plusClicked = false;
+        multiClicked = false;
+    }else if(divClicked === true){
+        if(operand2 === 0){
+            operand1 = ''
+            operand2 = ''
+            displayTotal.textContent = "u broke me :("
+            operatorClicked = false;
+            equalsClicked = false;
+            minusClicked = false;
+            multiClicked = false;
+            divClicked = false;
+        }else{
+            operand1 = Math.round((+operand1 / +operand2) * 100)/100
+            operand1 = operand1.toString()
+            operand2 = ''
+            displayTotal.textContent = operand1
+            divClicked = false;
+        }
     }else{
-        console.log("critical error")
+        displayTotal.textContent = operand1;
     }
 }
 
