@@ -1,5 +1,7 @@
 let total = '';
+let total2 = '';
 let displayTotal = document.querySelector('.computed-total')
+let oldTotal = displayTotal.innerHTML
 let zero = document.querySelector('.zero')
 let one = document.querySelector('.one')
 let two = document.querySelector('.two')
@@ -14,6 +16,22 @@ let addButton = document.querySelector('.add')
 let subButton = document.querySelector('.sub')
 let divButton = document.querySelector('.divi')
 let mulButton = document.querySelector('.mul')
+let clear = document.querySelector('.clear')
+let equals = document.querySelector('.equals')
+clear.addEventListener('click',()=>{
+    total = ''
+    displayTotal.textContent = oldTotal
+})
+function operate(a,b,operand){
+    a = Number(a)
+    b = Number(b)
+    switch(operand){
+        case '+':
+            return addition(a,b)
+            
+
+    }
+}
 
 
 one.addEventListener('click', ()=>{
