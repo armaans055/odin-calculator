@@ -53,6 +53,19 @@ body{
     gap: 9px;
     border-radius: 8px;
 }
+.add,
+.mul,
+.sub,
+.divi{
+    background-color: lightgreen;
+}
+/* .sub,
+.divi{
+    background-color: red;
+} */
+.equals{
+    background-color: lightseagreen;
+}
 
 
 .clear,
@@ -65,6 +78,13 @@ body{
     font-size: 2em;
     border-radius: 8px;
     border: 3px solid black;
+}
+
+.clear{
+    background-color: #ff7377;
+}
+.delete{
+    background-color: #CBC3E3;
 }
 
 .numbers-ops{
