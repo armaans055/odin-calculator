@@ -1,5 +1,11 @@
+@font-face {
+    font-family: VT232;
+    src:local("C:\Users\armaansandhu\Library\Fonts\/Users/armaansandhu/Library/Fonts/VT323-Regular.ttf");
+}
+
+
 *{
-    font-family: 'VT323', sans-serif;
+    font-family: VT232 , sans-serif;
     background-color: #B9D6F2;
 }
 html, body {
